@@ -1,0 +1,3 @@
+host=192.168.111.99
+username=root
+passwd=123456a@

@@ -1,15 +1,15 @@
 #!/bin/bash
 export AnException=100
 export AnotherException=101
-#=============================================================
-
-#TITLE:         mysql_backup.sh
-#DESCRIPTION:   script for automating the daily mysql backups on development computer
-#AUTHOR:        huynx
-#DATE:          27, April, 2021
-#USAGE:         ./mysql_backup.sh
-
-#=============================================================
+#======================================================================================
+#                                                                                     #
+#TITLE:         mysql_backup.sh                                                       #
+#DESCRIPTION:   script for automating the daily mysql backups on development computer #
+#AUTHOR:        huynx                                                                 #
+#DATE:          27, April, 2021                                                       #
+#USAGE:         ./mysql_backup.sh                                                     #
+#                                                                                     #
+#=====================================================================================#
 
 # Date/time format MM-DD-YY
 datetime=$(date +%F)
