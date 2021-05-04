@@ -4,5 +4,5 @@ Working with Terminal sometimes we use many commands in many times, or doing man
 
 ### I. <a href='https://github.com/tebby455/BashScript/tree/main/Mysql_Backup' tyle='text-decoration: none'>MySQL Backup</a>
 
-- This is my tool for Backing up Mysql automation.
+- This is my tool for Backing up Mysql automation is written in **Python** and **Bash**
 
