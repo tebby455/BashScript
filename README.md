@@ -7,10 +7,15 @@ Working with Terminal sometimes we use many commands in many times, or doing man
 - This is my tool for Backing up Mysql automation is written in **Python** and **Bash**
 
 
-### II. Build a Web Server Model (CentOS7)
+### II. <a href='https://github.com/tebby455/BashScript/tree/main/Build_WebServer_Model'>Build a Web Server Model (CentOS7)</a>
 
 - This tool will build a new machine to a web server with Apache & Nginx
 - Nginx will be a reverse proxy to execute static content, Apache will execute dynamic content (php) and deloy a domain  in each users you want
+- Requirement:
+    * `yum update && yum upgrade -y`
+    * `yum install wget`
+
+> This tool for basical automation build a webserver with model Nginx(reverse proxy) & Apache, have not try/catch yet (coming soon)
 
 ***
 
