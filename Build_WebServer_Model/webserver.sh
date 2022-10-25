@@ -11,10 +11,10 @@ function disableService() {
 
     #disable php-fpm because we use default handler of apache
     systemctl disable php-fpm
-    systemctl disable php56-php-fpm
+    #systemctl disable php56-php-fpm
 
     service php-fpm stop
-    serivce php56-php-fpm start
+    #serivce php56-php-fpm start
 
 
 }
@@ -28,7 +28,7 @@ function installPHP(){
 
     yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 
-    yum -y install epel-release yum-utils
+    yum -y install yum-utils
 
     yum-config-manager --disable remi-php54
 
@@ -36,7 +36,7 @@ function installPHP(){
 
     yum -y install php php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json
 
-    yum -y install php56-php-cli php56-php-fpm php56-php-mysqlnd php56-php-zip php56-php-devel php56-php-gd php56-php-mcrypt php56-php-mbstring php56-php-curl php56-php-xml php56-php-pear php56-php-bcmath php56-php-json
+    #yum -y install php56-php-cli php56-php-fpm php56-php-mysqlnd php56-php-zip php56-php-devel php56-php-gd php56-php-mcrypt php56-php-mbstring php56-php-curl php56-php-xml php56-php-pear php56-php-bcmath php56-php-json
 
 }
 
@@ -109,7 +109,7 @@ function setupNginx() {
     root /home/$username/public_html;
 
     location / {
-        try_files \$uri \$uri/ /index.php?\$args /info.php?\$args;
+        try_files \$uri \$uri/ /index.php /info.php;
     }
 
     location /wordpress {
