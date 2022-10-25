@@ -2,15 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: book-info-service-deployments
-  namespace: bozo-book-library-dev
+  namespace: test-argocd-dev
   labels:
-    application: bozo-book-library
+    application: test-argocd
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: book-info-service
-      namespace: bozo-book-library-dev
+      namespace: test-argocd-dev
   template:
     metadata:
       annotations:
@@ -24,7 +24,7 @@ spec:
           {{- end }}
       labels:
         app: book-info-service
-        namespace: bozo-book-library-dev
+        namespace: test-argocd-dev
     spec:
       serviceAccountName: bozobooks-app
       containers:

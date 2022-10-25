@@ -2,9 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: book-library-service-svc
-  namespace: bozo-book-library-dev
+  namespace: test-argocd-dev
   labels: 
-    application: bozo-book-library
+    application: test-argocd
 spec:
   selector: 
     app: book-library-service
