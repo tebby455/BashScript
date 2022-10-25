@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-library-postgres-db
+  namespace: bozo-book-library-dev
+  labels: 
+    application: bozo-book-library  
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: book-library-postgres-db
+  template:
+    metadata:
+      labels:
+        app: book-library-postgres-db
+    spec:
+      serviceAccountName: bozobooks-app
+      containers:
+        - name: postgres
+          image: postgres:10.4
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+    
+          volumeMounts:
+            - mountPath: /var/lib/postgresql
+              name: postgredb
+      volumes:
+        - name: postgredb
+          persistentVolumeClaim:
+            claimName:  book-library-postgres-db-pv-claim
