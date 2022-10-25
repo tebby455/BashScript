@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-library-service-deployments
+  namespace: bozo-book-library-dev
+  labels:
+    application: bozo-book-library
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: book-library-service
+      namespace: bozo-book-library-dev
+  template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/agent-init-first: 'true'
+        vault.hashicorp.com/role: bozobooks-app
+        vault.hashicorp.com/agent-inject-secret-config: bozobooks/data/postgres-config
+        vault.hashicorp.com/agent-inject-template-config: |
+          {{ with secret "bozobooks/data/postgres-config" -}}
+            export dbUser="{{ .Data.data.user }}"
+            export dbPassword="{{ .Data.data.password }}"
+          {{- end }}
+      labels:
+        app: book-library-service
+        namespace: bozo-book-library-dev
+    spec:
+      serviceAccountName: bozobooks-app
+      containers:
+        - name: book-library-service
+          image: abvijaykumar/bozo-book-library-service:87
+          args:
+            - sh
+            - '-c'
+            - source /vault/secrets/config && ./booklibraryservice -Dquarkus.http.host=0.0.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
