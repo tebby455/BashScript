@@ -36,7 +36,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: book-library-postgres-db-pv-claim
-  namespace: bozo-book-library-dev
+  namespace: test-argocd-dev
   labels:
     app: book-library-postgres-db
 spec:

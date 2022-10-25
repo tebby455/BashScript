@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress 
 metadata:
-  name: bozo-book-library-ingress
-  namespace: bozo-book-library-dev
+  name: test-argocd-ingress
+  namespace: test-argocd-dev
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: "bozo-letsencrypt-issuer"

@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: book-library-postgres-db
-  namespace: bozo-book-library-dev
+  namespace: test-argocd-dev
   labels: 
-    application: bozo-book-library  
+    application: test-argocd  
 spec:
   replicas: 1
   selector: 

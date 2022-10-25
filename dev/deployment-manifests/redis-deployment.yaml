@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis-cache-deployments
-  namespace: bozo-book-library-dev
+  namespace: test-argocd-dev
   labels: 
-    application: bozo-book-library  
+    application: test-argocd  
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: redis-cache-service
-      namespace: bozo-book-library-dev
+      namespace: test-argocd-dev
   template:
     metadata:
       labels:
         app: redis-cache-service
-        namespace: bozo-book-library-dev
+        namespace: test-argocd-dev
     spec:
       serviceAccountName: bozobooks-app
       containers:
